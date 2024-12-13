@@ -1,13 +1,12 @@
 package at.campus02.swe.logic;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 
 import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 import at.campus02.swe.Calculator.Operation;
+
+import static org.junit.Assert.*;
 
 public class CalculatorTest {
 
@@ -49,6 +48,45 @@ public class CalculatorTest {
         double result = calc.perform(Operation.div);
 
         assertEquals(3, result, 0);
+
+    }
+    @Test
+    public  void testSimpleModOperationWorks1() throws  Exception {
+
+        Calculator calc = new CalculatorImpl();
+        calc.push(6.0);
+        calc.push(2);
+        double result = calc.perform(Operation.mod);
+
+        assertEquals(0, result, 0);
+    }
+    @Test
+    public  void testSimpleModOperationWorks2() throws  Exception {
+
+        Calculator calc = new CalculatorImpl();
+        calc.push(12.0);
+        calc.push(2);
+        double result = calc.perform(Operation.mod);
+
+        assertEquals(0, result, 0);
+    }
+    @Test
+    public void testDModByZero() throws Exception {
+
+        //Setup
+        Calculator calc = new CalculatorImpl();
+        try {
+            calc.push(2);
+            calc.push(0);
+            calc.perform(Operation.div);
+
+            fail("Exception expected");
+
+
+        } catch (CalculatorException e) {
+            assertEquals("Division by zero", e.getMessage());
+            // e.getCause()
+        }
 
     }
 
