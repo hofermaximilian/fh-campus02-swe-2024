@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 import org.junit.Test;
+
 import static org.mockito.Mockito.*;
 
 import at.campus02.swe.Calculator;
@@ -40,4 +41,6 @@ public class ParserTest {
 
         verifyNoMoreInteractions(cal);
     }
+
+
 }

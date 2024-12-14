@@ -13,7 +13,6 @@ public class CalculatorException extends Exception {
         super(arg0);
     }
 
-
     public CalculatorException(Throwable arg0) {
         super(arg0);
     }

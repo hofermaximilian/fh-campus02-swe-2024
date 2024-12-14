@@ -13,8 +13,17 @@ public class CalculatorImpl implements Calculator {
     @Override
     public double perform(Operation op) throws CalculatorException {
 
-        double b = pop();
-        double a = pop();
+        double b = 0;
+        double a = 0;
+
+        switch (op) {
+            case add, sub, div, mul, mod:
+                b = pop();
+                a = pop();
+                break;
+            case sin, cos:
+                a = pop();
+        }
 
         switch (op) {
             case add:
@@ -33,6 +42,10 @@ public class CalculatorImpl implements Calculator {
                 if (Double.isInfinite(d))
                     throw new CalculatorException("Division by zero");
                 return d;
+            case sin:
+                return Math.sin(Math.toRadians(a));
+            case cos:
+                return Math.cos(Math.toRadians(a));
         }
         return 0;
     }

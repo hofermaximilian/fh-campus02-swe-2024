@@ -50,8 +50,9 @@ public class CalculatorTest {
         assertEquals(3, result, 0);
 
     }
+
     @Test
-    public  void testSimpleModOperationWorks1() throws  Exception {
+    public void testSimpleModOperationWorks1() throws Exception {
 
         Calculator calc = new CalculatorImpl();
         calc.push(6.0);
@@ -60,8 +61,9 @@ public class CalculatorTest {
 
         assertEquals(0, result, 0);
     }
+
     @Test
-    public  void testSimpleModOperationWorks2() throws  Exception {
+    public void testSimpleModOperationWorks2() throws Exception {
 
         Calculator calc = new CalculatorImpl();
         calc.push(12.0);
@@ -70,6 +72,7 @@ public class CalculatorTest {
 
         assertEquals(0, result, 0);
     }
+
     @Test
     public void testDModByZero() throws Exception {
 
@@ -89,9 +92,6 @@ public class CalculatorTest {
         }
 
     }
-
-
-
 
 
     //
@@ -120,6 +120,34 @@ public class CalculatorTest {
             assertEquals("Division by zero", e.getMessage());
             // e.getCause()
         }
+
+    }
+
+    @Test
+    public void testSin() throws Exception {
+
+        //Setup
+        Calculator calc = new CalculatorImpl();
+
+        calc.push(90);
+
+        double result = calc.perform(Operation.sin);
+
+        assertEquals(1, result, 0);
+
+    }
+
+    @Test
+    public void testCos() throws Exception {
+
+        //Setup
+        Calculator calc = new CalculatorImpl();
+
+        calc.push(180);
+
+        double result = calc.perform(Operation.cos);
+
+        assertEquals(-1, result, 0);
 
     }
 }
