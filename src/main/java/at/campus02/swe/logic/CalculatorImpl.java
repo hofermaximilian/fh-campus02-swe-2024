@@ -17,34 +17,37 @@ public class CalculatorImpl implements Calculator {
         double a = 0;
 
         switch (op) {
-            case add, sub, div, mul, mod:
+            case add:
                 b = pop();
                 a = pop();
-                break;
-            case sin, cos:
-                a = pop();
-        }
-
-        switch (op) {
-            case add:
                 return a + b;
             case sub:
+                b = pop();
+                a = pop();
                 return a - b;
             case div:
+                b = pop();
+                a = pop();
                 double c = a / b;
                 if (Double.isInfinite(c))
                     throw new CalculatorException("Division by zero");
                 return c;
             case mul:
+                b = pop();
+                a = pop();
                 return a * b;
             case mod:
+                b = pop();
+                a = pop();
                 double d = a % b;
                 if (Double.isInfinite(d))
                     throw new CalculatorException("Division by zero");
                 return d;
             case sin:
+                a = pop();
                 return Math.sin(Math.toRadians(a));
             case cos:
+                a = pop();
                 return Math.cos(Math.toRadians(a));
         }
         return 0;
@@ -66,5 +69,4 @@ public class CalculatorImpl implements Calculator {
     public void clear() {
         stack_.clear();
     }
-
 }
