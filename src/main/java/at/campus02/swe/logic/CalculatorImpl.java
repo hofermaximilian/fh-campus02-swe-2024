@@ -50,6 +50,7 @@ public class CalculatorImpl implements Calculator {
                 a = pop();
                 return Math.cos(Math.toRadians(a));
         }
+
         return 0;
     }
 
