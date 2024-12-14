@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class EndToEndTest {
 
     @Test
-    public void Test04Xml() throws Exception {
+    public void MulTest() throws Exception {
 
         Calculator cal = new CalculatorImpl();
 
@@ -22,11 +22,31 @@ public class EndToEndTest {
     }
 
     @Test
-    public void Test05Xml() throws Exception {
+    public void ModTest() throws Exception {
 
         Calculator cal = new CalculatorImpl();
 
         Parser parser = new Parser(cal);
         Assert.assertEquals(2.0,parser.parse(new File("src/test/resources/test05-e2e.xml")),0);
     }
+
+    @Test
+    public void SinTest() throws Exception {
+
+        Calculator cal = new CalculatorImpl();
+
+        Parser parser = new Parser(cal);
+        Assert.assertEquals(1,parser.parse(new File("src/test/resources/test06-e2e.xml")),0);
+    }
+
+    @Test
+    public void CosTest() throws Exception {
+
+        Calculator cal = new CalculatorImpl();
+
+        Parser parser = new Parser(cal);
+        Assert.assertEquals(-1,parser.parse(new File("src/test/resources/test07-e2e.xml")),0);
+    }
+
+
 }
