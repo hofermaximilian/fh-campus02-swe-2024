@@ -4,6 +4,7 @@ package at.campus02.swe.logic;
 import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class CalculatorImpl implements Calculator {
@@ -15,6 +16,7 @@ public class CalculatorImpl implements Calculator {
 
         double b = 0;
         double a = 0;
+        ArrayList<Integer> a1 = new ArrayList<>();
 
         switch (op) {
             case add:
@@ -49,6 +51,18 @@ public class CalculatorImpl implements Calculator {
             case cos:
                 a = pop();
                 return Math.cos(Math.toRadians(a));
+            case dotproduct:
+                while (!stack_.isEmpty()) {
+                    a1.add((int) pop());
+                }
+                int numElements = a1.getFirst();
+                a1.removeFirst();
+
+                int result = 0;
+                for (int i = 0; i < a1.size() / 2; i++) {
+                    result += a1.get(i) * a1.get(i + numElements);
+                }
+                return result;
         }
 
         return 0;

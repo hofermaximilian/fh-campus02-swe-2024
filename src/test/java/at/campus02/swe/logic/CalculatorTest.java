@@ -150,4 +150,23 @@ public class CalculatorTest {
         assertEquals(-1, result, 0);
 
     }
+
+    @Test
+    public void testDotproduct() throws Exception {
+
+        //Setup
+        Calculator calc = new CalculatorImpl();
+
+        calc.push(2);
+        calc.push(5);
+        calc.push(2);
+        calc.push(2);
+        calc.push(2);
+
+        double result = calc.perform(Operation.dotproduct);
+        System.out.println(result);
+
+        assertEquals(-1, result, 0);
+
+    }
 }
