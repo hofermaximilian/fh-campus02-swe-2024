@@ -58,13 +58,15 @@ public class CalculatorImpl implements Calculator {
                 int numElements = a1.getFirst();
                 a1.removeFirst();
 
+                if (numElements * 2 != a1.size())
+                    throw new CalculatorException("Values not matching with vector-size");
+
                 int result = 0;
                 for (int i = 0; i < a1.size() / 2; i++) {
                     result += a1.get(i) * a1.get(i + numElements);
                 }
                 return result;
         }
-
         return 0;
     }
 

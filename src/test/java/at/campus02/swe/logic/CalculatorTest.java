@@ -152,12 +152,12 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testDotproduct() throws Exception {
+    public void testDotproductWorking() throws Exception {
 
         //Setup
         Calculator calc = new CalculatorImpl();
 
-        calc.push(2);
+        calc.push(3);
         calc.push(5);
         calc.push(2);
         calc.push(2);
@@ -166,7 +166,34 @@ public class CalculatorTest {
         double result = calc.perform(Operation.dotproduct);
         System.out.println(result);
 
-        assertEquals(-1, result, 0);
+        assertEquals(16, result, 0);
+
+    }
+
+    @Test
+    public void testDotproductFailing() throws Exception {
+
+        //Setup
+        Calculator calc = new CalculatorImpl();
+
+        try {
+            calc.push(3);
+            calc.push(5);
+            calc.push(2);
+            calc.push(2);
+            calc.push(2);
+
+            calc.push(7);
+
+            double result = calc.perform(Operation.dotproduct);
+            System.out.println(result);
+
+            fail("Exception expected");
+
+        } catch (CalculatorException e) {
+            assertEquals("Values not matching with vector-size", e.getMessage());
+            // e.getCause()
+        }
 
     }
 }
