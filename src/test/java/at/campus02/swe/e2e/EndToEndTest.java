@@ -48,5 +48,22 @@ public class EndToEndTest {
         Assert.assertEquals(-1, parser.parse(new File("src/test/resources/test07-e2e.xml")), 0);
     }
 
+    @Test
+    public void DotproductTest1() throws Exception {
+
+        Calculator cal = new CalculatorImpl();
+
+        Parser parser = new Parser(cal);
+        Assert.assertEquals(11, parser.parse(new File("src/test/resources/test08_e2e_dotproduct1.xml")), 0);
+    }
+
+    @Test
+    public void DotproductTest2() throws Exception {
+
+        Calculator cal = new CalculatorImpl();
+
+        Parser parser = new Parser(cal);
+        Assert.assertEquals(70, parser.parse(new File("src/test/resources/test09_e2e_dotproduct2.xml")), 0);
+    }
 
 }
