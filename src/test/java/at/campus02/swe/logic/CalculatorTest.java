@@ -67,10 +67,10 @@ public class CalculatorTest {
 
         Calculator calc = new CalculatorImpl();
         calc.push(12.0);
-        calc.push(2);
+        calc.push(7);
         double result = calc.perform(Operation.mod);
 
-        assertEquals(0, result, 0);
+        assertEquals(5, result, 0);
     }
 
     @Test
@@ -164,9 +164,32 @@ public class CalculatorTest {
         calc.push(2);
 
         double result = calc.perform(Operation.dotproduct);
-        System.out.println(result);
 
         assertEquals(16, result, 0);
+
+    }
+
+    @Test
+    public void testDotproductWorking2() throws Exception {
+
+        //Setup
+        Calculator calc = new CalculatorImpl();
+
+        calc.push(3);
+        calc.push(5);
+        calc.push(2);
+        calc.push(2);
+
+        calc.push(3);
+        calc.push(5);
+        calc.push(2);
+        calc.push(2);
+
+        calc.push(4);
+
+        double result = calc.perform(Operation.dotproduct);
+
+        assertEquals(42, result, 0);
 
     }
 
